@@ -1,5 +1,4 @@
 using MeetingSystem.Web.Data;
-using MeetingSystem.Web.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeetingSystem.Web
@@ -12,8 +11,10 @@ namespace MeetingSystem.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
             builder.Services.AddDbContext<MeetingDbContext>(options =>
-               options.UseSqlServer(builder.Configuration.GetConnectionString("MeetingRoomDbConnectionString")));
+               options.UseSqlServer(builder.Configuration
+               .GetConnectionString("MeetingRoomDbConnectionString")));
 
             var app = builder.Build();
 
@@ -35,7 +36,6 @@ namespace MeetingSystem.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.Seed();
             app.Run();
         }
     }

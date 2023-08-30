@@ -10,5 +10,20 @@ namespace MeetingSystem.Web.Data
         }
 
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            var user = new User()
+            {
+                Id = 1,
+                Name = "Admin",
+                Email = "admin123@gmail.com",
+                Password = "Admin@123",
+                Role = UserRole.ADMIN
+            };
+
+            modelBuilder.Entity<User>().HasData(user);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

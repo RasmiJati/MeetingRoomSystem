@@ -5,7 +5,7 @@
 namespace MeetingSystem.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialmigration : Migration
+    public partial class InitialDataSeeding : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,15 +16,20 @@ namespace MeetingSystem.Web.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(200)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(200)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(300)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(300)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(300)", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "Name", "Password", "Role" },
+                values: new object[] { 1, "admin123@gmail.com", "Admin", "Admin@123", 0 });
         }
 
         /// <inheritdoc />
