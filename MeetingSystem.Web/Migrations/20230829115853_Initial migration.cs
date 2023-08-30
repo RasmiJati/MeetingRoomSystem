@@ -5,7 +5,7 @@
 namespace MeetingSystem.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class Initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,7 @@ namespace MeetingSystem.Web.Migrations
                     Name = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(200)", nullable: false),
-                    Role = table.Column<int>(type: "nvarchar(150)", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

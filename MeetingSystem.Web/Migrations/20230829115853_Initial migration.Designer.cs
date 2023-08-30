@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeetingSystem.Web.Migrations
 {
     [DbContext(typeof(MeetingDbContext))]
-    [Migration("20230829094033_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20230829115853_Initial migration")]
+    partial class Initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
